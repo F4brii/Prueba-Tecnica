@@ -1,0 +1,57 @@
+<div class="mt-5 mb-5">
+    <h1>Agregar articulo</h1>    
+</div>
+<form [formGroup] = "Article" (ngSubmit) = "guardarArticle()">
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Nombre" formControlName="Name">
+        <span class="text-danger ml-3" *ngIf = "Article.get('Name').hasError('required')" >
+            *Nombre es requerido
+        </span>
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Descripcion" formControlName="Description">
+        <span class="text-danger ml-3" *ngIf = "Article.get('Description').hasError('required')" >
+            *Descripcion es requerido
+        </span>
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Tipo" formControlName="Type">
+        <span class="text-danger ml-3" *ngIf = "Article.get('Type').hasError('required')" >
+            *Tipo es requerido
+        </span>
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Serial" formControlName="Serial">
+        <span class="text-danger ml-3" *ngIf = "Article.get('Serial').hasError('required')" >
+            *Serial es requerido
+        </span>
+    </div>
+    <div class="form-group">
+        <input type="number" class="form-control" placeholder="Valor" formControlName="Value">
+        <span class="text-danger ml-3" *ngIf = "Article.get('Value').hasError('required')" >
+            *Valor es requerido
+        </span>
+    </div>
+    <div class="form-group">
+        <input type="date" class="form-control" placeholder="Fecha" formControlName="Date">
+        <span class="text-danger ml-3" *ngIf = "Article.get('Date').hasError('required')" >
+            *Fecha es requerido
+        </span>
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Estado" formControlName="State">
+        <span class="text-danger ml-3" *ngIf = "Article.get('State').hasError('required')" >
+            *Estado es requerido
+        </span>
+    </div>
+    <div class="">
+        <label for="exampleFormControlSelect1">Area</label>
+        <select class="form-control" id="exampleFormControlSelect1" formControlName="AreaForeignKey">
+            <option [value]="area.id" *ngFor="let area of listAreas">{{area.name}}</option>
+        </select>
+        <span class="text-danger ml-3" *ngIf = "Article.get('AreaForeignKey').hasError('required')" >
+            *Area es requerido
+        </span>
+      </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!Article.valid">Aceptar</button>
+</form>

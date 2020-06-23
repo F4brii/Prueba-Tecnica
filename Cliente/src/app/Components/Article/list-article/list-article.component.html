@@ -1,0 +1,30 @@
+<br />
+<div class="spinner-border" role="status" *ngIf="loading">
+    <span class="sr-only">Loading...</span>
+</div>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Type</th>
+            <th scope="col">Serial</th>
+            <th scope="col">Value</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Area</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>   
+    <tbody>
+        <tr *ngFor='let article of listArticles'>
+            <td>{{article.name}}</td>
+            <td>{{article.description}}</td>
+            <td>{{article.type}}</td>
+            <td>{{article.serial}}</td>
+            <td>{{article.value}}</td>
+            <td>{{article.state}}</td>
+            <td><a routerLink="/area/see/{{article.areaForeignKey}}">{{ article.areaForeignKey }}</a></td>
+            <td><button class="btn btn-danger" role="button" (click)="deleteArticle(article.id)">Eliminar</button></td>
+        </tr>
+    </tbody>     
+</table>

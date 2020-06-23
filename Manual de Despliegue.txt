@@ -1,0 +1,57 @@
+Despliegue Inventario
+
+Para el despligue del Inventario, debe tener instalado:
+
+        -Docker
+        -Docker compose
+
+Teniendo esto ya instalado, nos ubicamos en la raiz del 
+directio /Prueba. Donde esta contenido todo el proyecto.
+
+Estructura
+
+        /Prueba
+            |
+            |-Cliente ----> Aqui esta el Front hecho en Angular Cli
+            |
+            |-Inventario ---> Aqui esta contenido el Backend en Asp.net Core
+            |
+            |-docker-compose.yml
+            |
+            |-Mer.png
+            |
+            |-Manual de Despliegue.txt
+
+
+Estando en la raiz de /Prueba, ejecutamos el siguiente comando
+
+
+        docker-compose up --build
+
+Posterior a esto el Docker empezara la construccion de la imagenes y puesta
+en marcha de contenedores. Se debe esperar hasta que los dos servicios esten 
+Montados y corriendo.
+
+Nota: El frontend puede tardar un poco mientras la compilacion del proyecto.
+
+Enlaces de revision.
+
+Backend
+
+
+http://localhost:8000/ ---------> Redireciona a la siguiente
+http://localhost:8000/index.html   ------> Documentacion con Swagger
+
+
+http://localhost:8000/api/Area ----------> Punto de entrada al modelo Area 
+http://localhost:8000/api/Area/1 -------------> Espcificacion por id de registro\
+
+
+http://localhost:8000/api/Article ----------> Punto de entrada al modelo Area 
+http://localhost:8000/api/Article/1 -------------> Espcificacion por id de registro
+
+
+Frontend
+
+http://localhost:4200/area -------- => Interfas de Usuarion con la que se interactual el modelo Area con la ApiRest Mencionado anteriormente
+http://localhost:4200/article -------- => Interfas de Usuarion con la que se interactual el modelo Article con la ApiRest Mencionado anteriormente
